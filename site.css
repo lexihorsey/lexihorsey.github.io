@@ -1,0 +1,11 @@
+.headline {
+  color: blue;
+}
+
+.biobox {
+  border style: solid;
+  border-color: black;
+  border-width: 2px;
+  padding: 10px 10px 10px 10px;
+  width: 320px;
+}
