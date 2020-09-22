@@ -49,8 +49,9 @@ img {
   padding: 20px 20px 20px 20px
 }
 
-.content_containter {
+.content_container {
   max-width: 768px;
+  background-color: white;
 }
 
 .image_container {
