@@ -2,10 +2,89 @@
   color: blue;
 }
 
-.biobox {
+.box {
   border style: solid;
   border-color: black;
   border-width: 2px;
   padding: 10px 10px 10px 10px;
   width: 320px;
+}
+
+.newstitle{
+  background-color: white;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 20px;
+}
+
+.newssite{
+  background-color: white;
+  padding: 10px 20px 10px 20px
+  margin-bottom: 10px;
+  margin-right: 10px;
+  float: left;
+}
+.clear {
+  clear: left;
+}
+
+/**************************/
+/* styles for about page */
+/**************************/
+
+
+body {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.name_container {
+  background-color: white;
+  width: 344px;
+  font-size: 2.5em;
+  padding: 20px 20px 20px 20px
+}
+
+.content_container {
+  max-width: 768px;
+  background-color: white;
+}
+
+.image_container {
+  background-color: white;
+  height: 344px;
+  width: 344px;
+  float: left;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px 20px 20px 20px;
+}
+
+.bio_container {
+  background-color: white;
+  width: 344px;
+  float: left;
+  font-size: 1.5em;
+  text-align: left;
+  padding: 20px 20px 20px 20px
+}
+
+.news_container {
+  background-color: white;
+  width: 344px;
+  padding: 20px 20px 20px 20px
+}
+
+#greeting {
+  font-size: 2em;
+  margin: 1 em;
+}
+
+#weather {
+  font-size: 2em;
+  margin: 1em;
 }

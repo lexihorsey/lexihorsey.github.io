@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html>
   </head>
+  <script>
+      window.onload = function() {
+        // functions that run after page loads
+        displayGreeting();
+        fetchWeather();
+      }
+      // display good morning, afternoon or evening based on the time
+      function displayGreeting() {
+        var date = new Date();
+        var hour = date.getHours();
+        var description = "";
+        if (hour < 12) {
+          description = "morning";
+        } else if (hour < 17) {
+          description = "afternoon";
+        } else {
+          description = "evening";
+        }
+        document.getElementById("greeting").innerHTML = "It is currently 96.22 &#176; in Tucson, AZ. ";
+      }
+      // get weather data from openweathermap and display the current temp
+      function fetchWeather() {
+        fetch("https://api.openweathermap.org/data/2.5/weather?zip=85705,US&appid=fffbf6c72fe9b8cbc870426a94527f7f&units=imperial")
+        .then(function(resp) { return resp.json() })
+        .then(function(data) {
+          document.getElementById("weather").innerHTML = data.main.temp;
+        })
+        .catch(function() {
+          document.getElementById("weather").innerHTML = "Error in fetchWeather function";
+        });
+      }
+    </script>
     <title>About me</title>
+    <meta name="viewpoint" content="width= device-width,intial-scale=1">
     <link rel="stylesheet" href="site.css">
-  </head>
-  <body>
+</head>
+<body>
 
-<meta name="viewpoint" content="width= device-width,intial-scale=1">
-  <h1 class="biobox"
-    <center>
-    <center><img src="https://tucson.com/app/images/ua/storm.jpg"></center>
-    <h2><center>Lexi Horsey</h2></center>
-      <center<p>I am a senior here at the University of Arizona. I am an aspiring
-      photograher and journalist. I love dogs, especially bulldogs.</p>
-    <center>
-  </h1>
-    <!-- the table tag -->
-    <table border=" 1" cellpadding= "5">
-      <tr>
-        <td colspan="2">
-          <center>
-            <h3>News Sites </h3>
-          </center>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="https://www.newyorker.com/">New Yorker</a></td>
-        <td><a href="https://www.washingtonpost.com/">Washington Post</a></td>
-        </tr>
-        <tr>
-        <td><a href="https://www.nytimes.com/">New York Times</a></td>
-        <td><a href="https://www.latimes.com/">LA Times</a></td>
-        </tr>
-        <tr>
-        <td><a href="https://www.wsj.com/">Wall Street Journal</a></td>
-        <td><a href="https://www.usatoday.com/">USA Today</a></td>
-        </tr>
-    </table>
+  <div id="greeting"></div>
+  <div id="weather"></div>
+
+  <center>
+
+    <div class="name_container">
+      Lexi Horsey
+    </div>
+
+    <div class="content_container">
+    <div class="image_container">
+      <img src="media/samantha.jpg">
+    </div>
+
+    <div class="bio_container">
+      <h3> My Bio</h3>
+      <div> I am a senior here at the University of Arizona. I am an aspiring
+      photographer and journalist. I love dogs, especially bulldogs.</div>
+    </div>
+
+    <div class="clear"></div>
+
+  </div>
+
+  <div class="news_container">
+        <div class="newstitle">News Sites</div>
+        <div class="newssite"><a href="https://www.newyorker.com/">New Yorker</a></div>
+        <div class="newssite"><a href="https://www.washingtonpost.com/">Washington Post</a></div>
+        <div class="newssite"><a href="https://www.nytimes.com/">New York Times</a></div>
+        <div class="newssite"><a href="https://www.latimes.com/">LA Times</a></div>
+        <div class="newssite"><a href="https://www.wsj.com/">Wall Street Journal</a></div>
+        <div class="newssite"><a href="https://www.usatoday.com/">USA Today</a></div>
+
+        <div class="clear"></div>
+
+      </div>
+      <div class="copyright">&copy; Lexi Horsey</div>
     </body>
 </html>
