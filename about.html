@@ -19,14 +19,14 @@
         } else {
           description = "evening";
         }
-        document.getElementById("greeting").innerHTML = "It is currently 95.77 &#176; in Tucson, AZ. ";
+        document.getElementById("greeting").innerHTML = "Good" + description;
       }
       // get weather data from openweathermap and display the current temp
       function fetchWeather() {
         fetch("https://api.openweathermap.org/data/2.5/weather?zip=85705,US&appid=fffbf6c72fe9b8cbc870426a94527f7f&units=imperial")
         .then(function(resp) { return resp.json() })
         .then(function(data) {
-          document.getElementById("weather").innerHTML = data.main.temp;
+          document.getElementById("weather").innerHTML = "It is currently " + data.main.temp + "&deg; in Tucson, AZ";
         })
         .catch(function() {
           document.getElementById("weather").innerHTML = "Error in fetchWeather function";
