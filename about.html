@@ -5,6 +5,33 @@
   <script src="https://storage.googleapis.com/feednami-static/js/feednami-client-v1.0.1.js"></script>
   <script>
 
+  window.onload = function() {
+    // functions that run after page loads
+    listSheet();
+  }
+    function listSheet() {
+      fetch('https://api.sheetson.com/v2/sheets/Sheet1', {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ciJ3qi-1o7g0d_IQVGcnG8Y1Vepc65HafJjXosFvJYuctwPRuh6fUU-jS09gew',
+          'X-Sheetson-Spreadsheet-Id': '1Hn4EpoaMMHEJDv2huLiFnxPXLlsnVQ6Cgsuf5etOK7g'
+        }
+      })
+      .then(function(resp) { return resp.json() })
+      .then(function(data) {
+        for (var i = 0; i < data.results.length; i++) {
+          var result = data.results[i];
+          let divElement = '<div class="cell">' + '<div class="cell_name">' + result.name + '</div>' + '<div class="cell_address">' + result.address + '</div>' + '<div class="cell_url"><a href="' + result.url + '">' + result.url + '</a></div>' + '<div class="cell_phone"><a href="tel://' + result.phone + '">' + result.phone + '</a></div>' + '</div>';
+          document.getElementById("sheet").innerHTML += divElement;
+        }
+      })
+      .catch(function() {
+        document.getElementById("sheet").innerHTML = "Error in listSheet function";
+      });
+    }
+
+    <
 
       window.onload = function() {
         // functions that run after page loads
@@ -37,17 +64,14 @@
         });
       }
 
-      window.onload = function() }
+      window.onload = function displayRSSFeed() }
             // functions that run after page loads
-      displayGreeting() ;
-      fetchWeather() ;
-      displayRSSFeed() ;
+            displayRSSFeed();
     }
 
-    // display good morning, afternoon or evening based on the time
       function displayRSSFeed() {
      // fetch an RSS feed and display the title and description
-     var origURL = 'https://tucson.com/search/?f=rss&t=article&c=news/world&l=25&s=start_time&sd=desc';
+     var origURL = 'https://www.niemanlab.org/feed/';
      // feednami doesn't like & so replace with %26
      var replacedURL = origURL.replace(/&/g, "%26");
      feednami.load(replacedURL,function(result) {
@@ -57,23 +81,59 @@
          var entries = result.feed.entries
          for (var i = 0; i < entries.length; i++) {
            var entry = entries[i];
-           let divElement = '<div class="rss_title"><a href="' + entry.link + '" target="_blank">' + entry.title + '</a></div><div class="rss_description">' + entry.description + '</div>';
+           let divElement = '<div class="rss_title"><a href="' + entry.link +
+           '" target="_blank">' + entry.title + '</a></div><div
+           class="rss_description">' + entry.description + '</div>';
            document.getElementById("rss_items").innerHTML += divElement;
          }
        }
      });
    }
 
+    function listSheet() {
+      fetch('https://api.sheetson.com/v2/sheets/Sheet1', {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ciJ3qi-1o7g0d_IQVGcnG8Y1Vepc65HafJjXosFvJYuctwPRuh6fUU-jS09gew',
+          'X-Sheetson-Spreadsheet-Id':'1Hn4EpoaMMHEJDv2huLiFnxPXLlsnVQ6Cgsuf5etOK7g'
+        }
+      })
+      .then(function(resp) { return resp.json() })
+      .then(function(data) {
+        for (var i = 0; i < data.results.length; i++) {
+          var result = data.results[i];
+          let divElement = '<div class="cell">' + '<div class="cell_name">' +
+          result.name + '</div>' + '<div class="cell_address">' + result.address
+          + '</div>' + '<div class="cell_url"><a href="' + result.url + '">'
+          + result.url + '</a></div>' + '<div class="cell_phone"><a href="tel://'
+           + result.phone + '">' + result.phone + '</a></div>' + '</div>';
+          document.getElementById("sheet").innerHTML += divElement;
+        }
+      })
+  .catch(function() {
+    document.getElementById("sheet").innerHTML = "Error in listSheet function";
+  });
+  }
+
     </script>
+
+  </head>
+  <body>
+
+    <h2>COVID-19 Testing Locations</h2>
+    <div id="sheet"></div>
+
+
+
+    <div id="rss_items"></div>
+
 
     <div id="greeting"></div>
     <div id="weather"></div>
 
     <div class="clear"></div>
 
-    <div id="rss_title"></div>
-    <div id="rss_description"></div>
-    <div id="rss_items"></div>
 
     <title>About me</title>
     <meta name="viewpoint" content="width= device-width,intial-scale=1">
@@ -120,5 +180,7 @@
 
       </div>
       <div class="copyright">&copy; Lexi Horsey</div>
+
+    </script>
     </body>
 </html>
