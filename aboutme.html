@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-  </head>
-  <script>
+  <head>
+    <title>About me</title>
+    <meta name="viewpoint" content="width= device-width,intial-scale=1">
+    <link rel="stylesheet" href="site.css">
   <script src="https://storage.googleapis.com/feednami-static/js/feednami-client-v1.0.1.js"></script>
 <script>
 
       window.onload = function() {
       displayGreeting();
       displayRSSFeed();
-      listsheet();
+      listSheet();
+      fetchWeather();
     }
 
       function displayGreeting() {
@@ -49,21 +52,16 @@
          var entries = result.feed.entries
          for (var i = 0; i < entries.length; i++) {
            var entry = entries[i];
-           let divElement = '<div class="rss_title"><a href="' + entry.link +
-           '" target="_blank">' + entry.title + '</a></div><div
-           class="rss_description">' + entry.description + '</div>';
+           let divElement = '<div class="rss_title"><a href="' + entry.link +'" target="_blank">' + entry.title + '</a></div><div class="rss_description">' + entry.description + '</div>';
            document.getElementById("rss_items").innerHTML += divElement;
          }
        }
      });
    }
 
-   window.onlaod = function () {
-     // functions that run after page loads
-     listSheet()
-   }
+
    function listSheet() {
-     fetch('https://api.sheetson.com/v2/sheets/Sheet1', {
+     fetch('https://api.sheetson.com/v2/sheets/Sheet1?no-cache=true', {
        withCredentials: true,
        headers: {
          'Content-Type': 'application/json',
@@ -75,11 +73,7 @@
      .then(function(data) {
        for (var i = 0; i < data.results.length; i++) {
          var result = data.results[i];
-         let divElement = '<div class="cell">' + '<div class="cell_name">' +
-         result.name + '</div>' + '<div class="cell_address">' + result.address
-         + '</div>' + '<div class="cell_url"><a href="' + result.url + '">'
-         + result.url + '</a></div>' + '<div class="cell_phone"><a href="tel://'
-          + result.phone + '">' + result.phone + '</a></div>' + '</div>';
+         let divElement = '<div class="cell">' + '<div class="cell_name">' +result.name + '</div>' + '<div class="cell_address">' + result.address+ '</div>' + '<div class="cell_url"><a href="' + result.url + '">'+ result.url + '</a></div>' + '<div class="cell_phone"><a href="tel://' + result.phone + '">' + result.phone+ '</a></div>' + '</div>';
          document.getElementById("sheet").innerHTML += divElement;
        }
      })
@@ -94,6 +88,7 @@
   <body>
 
     <h2>COVID-19 Testing Locations</h2>
+
     <div id="sheet"></div>
 
 
@@ -105,18 +100,6 @@
     <div id="weather"></div>
 
     <div class="clear"></div>
-
-
-    <title>About me</title>
-    <meta name="viewpoint" content="width= device-width,intial-scale=1">
-    <link rel="stylesheet" href="site.css">
-</head>
-<body>
-
-</body>
-  <div id="greeting"></div>
-  <div id="weather"></div>
-
 
   <center>
 
@@ -153,6 +136,5 @@
       </div>
       <div class="copyright">&copy; Lexi Horsey</div>
 
-    </script>
     </body>
 </html>
