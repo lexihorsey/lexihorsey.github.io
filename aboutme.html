@@ -4,15 +4,21 @@
     <title>About me</title>
     <meta name="viewpoint" content="width= device-width,intial-scale=1">
     <link rel="stylesheet" href="site.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
   <script src="https://storage.googleapis.com/feednami-static/js/feednami-client-v1.0.1.js"></script>
 <script>
 
-      window.onload = function() {
+    window.onload = function() {
       displayGreeting();
       displayRSSFeed();
       listSheet();
       fetchWeather();
+      drawMap();
     }
+
 
       function displayGreeting() {
         var date = new Date();
@@ -82,6 +88,33 @@
  });
  }
 
+
+ function drawMap() {
+  // draw a map using leafletjs and tiles from mapbox
+  var mymap = L.map('mapid').setView([32.2501738, -110.9612719], 13);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'pk.eyJ1IjoibGV4aWhvcnNleSIsImEiOiJja2c1dGQ5OWIwajdzMnNxdDNyeGR2cmxyIn0.ve-BZsNQKfNxvnzTG_08xg'
+  }).addTo(mymap);
+  var marker1 = L.marker([32.2501738, -110.9612719]).addTo(mymap);
+  var marker2 = L.marker([32.2274766, -110.945634]).addTo(mymap);
+  var marker3 = L.marker([32.2209947, -110.9370653]).addTo(mymap);
+  var marker4 = L.marker([32.2356114, -110.9134549]).addTo(mymap);
+  var marker5 = L.marker([32.2293351, -110.9125235]).addTo(mymap);
+
+  marker1.bindPopup("<b>Walgreens</b><br>I am a popup.");
+  marker2.bindPopup("<b>Southern Arizona Urgent Care</b><br>I am a popup.");
+  marker3.bindPopup("<b>Fastmed Urgent Care</b><br>I am a popup.");
+  marker4.bindPopup("<b>Minuteclinic</b><br>I am a popup.");
+  marker5.bindPopup("<b>CVS</b><br>I am a popup.");
+
+  return mymap;
+  }
+
     </script>
 
   </head>
@@ -90,7 +123,7 @@
     <h2>COVID-19 Testing Locations</h2>
 
     <div id="sheet"></div>
-
+    <div id="mapid"></div>
 
 
     <div id="rss_items"></div>
