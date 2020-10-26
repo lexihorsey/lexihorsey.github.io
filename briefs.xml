@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Smart Speaker Class</title>
+  <link>https://</link>
+  <description>FEED DESCRIPTION</description>
+  <item>
+    <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
+    <title>summary 1.mp3</title>
+    <link>ITEM ONE LINK</link>
+    <description>summary 1 description</description>
+    <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
+    <guid isPermaLink="false">LINK TO AUDIO FILE</guid>
+  </item>
+  <item>
+    <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
+    <title>summary 2.mp3</title>
+    <link>ITEM TWO LINK</link>
+    <description>ITEM TWO DESCRIPTION</description>
+    <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
+    <guid isPermaLink="false">LINK TO AUDIO FILE</guid>
+  </item>
+</channel>
+</rss>
