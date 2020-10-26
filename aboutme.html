@@ -17,7 +17,8 @@
       listSheet();
       fetchWeather();
       drawMap();
-    }  
+
+    }
 
 
       function displayGreeting() {
@@ -81,12 +82,15 @@
          var result = data.results[i];
          let divElement = '<div class="cell">' + '<div class="cell_name">' +result.name + '</div>' + '<div class="cell_address">' + result.address+ '</div>' + '<div class="cell_url"><a href="' + result.url + '">'+ result.url + '</a></div>' + '<div class="cell_phone"><a href="tel://' + result.phone + '">' + result.phone+ '</a></div>' + '</div>';
          document.getElementById("sheet").innerHTML += divElement;
-       }
-     })
- .catch(function() {
+
+            // add pins to mymap for each location
+            addPin(mymap, result.lat, result.lon, '<strong>' + result.name + '</strong><br>' + result.hours);
+          }
+        })
+        .catch(function() {
    document.getElementById("sheet").innerHTML = "Error in listSheet function";
- });
- }
+      });
+    }
 
 
  function drawMap() {
@@ -100,11 +104,12 @@
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoibGV4aWhvcnNleSIsImEiOiJja2c1dGQ5OWIwajdzMnNxdDNyeGR2cmxyIn0.ve-BZsNQKfNxvnzTG_08xg'
   }).addTo(mymap);
-  var marker1 = L.marker([32.2501738, -110.9612719]).addTo(mymap);
-  var marker2 = L.marker([32.2274766, -110.945634]).addTo(mymap);
-  var marker3 = L.marker([32.2209947, -110.9370653]).addTo(mymap);
-  var marker4 = L.marker([32.2356114, -110.9134549]).addTo(mymap);
-  var marker5 = L.marker([32.2293351, -110.9125235]).addTo(mymap);
+
+  var marker1 = L.marker().addTo(mymap);
+  var marker2 = L.marker().addTo(mymap);
+  var marker3 = L.marker().addTo(mymap);
+  var marker4 = L.marker().addTo(mymap);
+  var marker5 = L.marker().addTo(mymap);
 
   marker1.bindPopup("<b>Walgreens</b><br>I am a popup.");
   marker2.bindPopup("<b>Southern Arizona Urgent Care</b><br>I am a popup.");
