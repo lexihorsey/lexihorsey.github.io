@@ -6,7 +6,7 @@
   <description>FEED DESCRIPTION</description>
   <item>
     <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
-    <title>summary 1.mp3</title>
+    <title>summary1.mp3</title>
     <link>ITEM ONE LINK</link>
     <description>summary 1 description</description>
     <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
@@ -14,7 +14,7 @@
   </item>
   <item>
     <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
-    <title>summary 2.mp3</title>
+    <title>summary2.mp3</title>
     <link>ITEM TWO LINK</link>
     <description>ITEM TWO DESCRIPTION</description>
     <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
