@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>Smart Speaker Class</title>
-  <link>https://</link>
-  <description>FEED DESCRIPTION</description>
+  <title>Lexi's Briefs</title>
+  <link>https://lexihorsey.github.io/briefs/briefs.xml</link>
+  <description>Lexi's flash briefing</description>
   <item>
     <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
     <title>summary1.mp3</title>
-    <link>ITEM ONE LINK</link>
-    <description>summary 1 description</description>
-    <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
-    <guid isPermaLink="false">LINK TO AUDIO FILE</guid>
+    <link>https://lexihorsey.github.io/briefs/summary1.mp3</link>
+    <description>Campus Recreation</description>
+    <enclosure url="https://raw.githubusercontent.com/lexihorsey/lexihorsey.github.io/master/briefs/summary1.mp3" type="audio/mpeg" length="564"></enclosure>
+    <guid isPermaLink="false">"https://raw.githubusercontent.com/lexihorsey/lexihorsey.github.io/master/briefs/summary1.mp3"</guid>
+    <enclosure url="https://lexihorsey.github.io/briefs/summary1.mp3" type="audio/mpeg" length="564"></enclosure>
+    <guid isPermaLink="false">"https://lexihorsey.github.io/briefs/summary1.mp3"</guid>
   </item>
   <item>
     <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
     <title>summary2.mp3</title>
-    <link>ITEM TWO LINK</link>
-    <description>ITEM TWO DESCRIPTION</description>
-    <enclosure url="LINK TO AUDIO FILE" type="audio/mpeg" length="FILE SIZE"></enclosure>
-    <guid isPermaLink="false">LINK TO AUDIO FILE</guid>
+    <link>https://lexihorsey.github.io/briefs/summary2.mp3</link>
+    <description>summary 2 description</description>
+    <enclosure url="https://raw.githubusercontent.com/lexihorsey/lexihorsey.github.io/master/briefs/summary2.mp3" type="audio/mpeg" length="563.0"></enclosure>
+    <guid isPermaLink="false">"https://raw.githubusercontent.com/lexihorsey/lexihorsey.github.io/master/briefs/summary2.mp3"</guid>
+    <enclosure url="https://lexihorsey.github.io/briefs/summary2.mp3" type="audio/mpeg" length="563.0"></enclosure>
+    <guid isPermaLink="false">"https://lexihorsey.github.io/briefs/summary2.mp3"</guid>
   </item>
 </channel>
 </rss>
