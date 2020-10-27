@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Lexi's Briefs</title>
+  <link>https://lexihorsey.github.io/about.html</link>
+  <description>Lexi'sflash briefing</description>
+  <item>
+    <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
+    <title>summary1.mp3</title>
+    <link>https://lexihorsey.github.io/about.html</link>
+    <description>summary 1 description</description>
+    <enclosure url="https://lexihorsey.github.io/briefs/summary1.mp3" type="audio/mpeg" length="564"></enclosure>
+    <guid isPermaLink="false">https://lexihorsey.github.io/briefs/summary1.mp3</guid>
+  </item>
+  <item>
+    <pubDate>Mon, 26 Oct 2020 09:00:00 -0700</pubDate>
+    <title>summary2.mp3</title>
+    <link>https://lexihorsey.github.io/about.html</link>
+    <description>summary 2 description</description>
+    <enclosure url="https://lexihorsey.github.io/briefs/summary2.mp3"" type="audio/mpeg" length="563"></enclosure>
+    <guid isPermaLink="false">https://lexihorsey.github.io/briefs/summary2.mp3</guid>
+  </item>
+</channel>
+</rss>
