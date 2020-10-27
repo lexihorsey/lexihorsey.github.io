@@ -103,7 +103,9 @@
       tileSize: 512,
       zoomOffset: -1,
       accessToken: 'pk.eyJ1IjoibGV4aWhvcnNleSIsImEiOiJja2c1dGQ5OWIwajdzMnNxdDNyeGR2cmxyIn0.ve-BZsNQKfNxvnzTG_08xg'
-  }).addTo(mymap);
+    }).addTo(mymap);
+    return mymap;
+  }
 
   var marker1 = L.marker().addTo(mymap);
   var marker2 = L.marker().addTo(mymap);
@@ -119,6 +121,7 @@
 
   return mymap;
   }
+
 
     </script>
 
