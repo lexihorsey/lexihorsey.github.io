@@ -14,12 +14,10 @@
     window.onload = function() {
       displayGreeting();
       displayRSSFeed();
-      listSheet();
+      var mymap = drawMap();
+      listSheet(mymap);
       fetchWeather();
-      drawMap();
-
     }
-
 
       function displayGreeting() {
         var date = new Date();
@@ -46,7 +44,6 @@
         });
       }
 
-
       function displayRSSFeed() {
      // fetch an RSS feed and display the title and description
      var origURL = 'https://www.niemanlab.org/feed/';
@@ -66,8 +63,7 @@
      });
    }
 
-
-   function listSheet() {
+   function listSheet(mymap) {
      fetch('https://api.sheetson.com/v2/sheets/Sheet1?no-cache=true', {
        withCredentials: true,
        headers: {
@@ -84,7 +80,7 @@
          document.getElementById("sheet").innerHTML += divElement;
 
             // add pins to mymap for each location
-            addPin(mymap, result.lat, result.lon, '<strong>' + result.name + '</strong><br>' + result.hours);
+            addPin(mymap, result.lat, result.lon, '<strong>' + result.name + '</strong><br>' + result.address);
           }
         })
         .catch(function() {
@@ -92,8 +88,7 @@
       });
     }
 
-
- function drawMap() {
+    function drawMap() {
   // draw a map using leafletjs and tiles from mapbox
   var mymap = L.map('mapid').setView([32.2501738, -110.9612719], 13);
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -107,19 +102,7 @@
     return mymap;
   }
 
-  var marker1 = L.marker().addTo(mymap);
-  var marker2 = L.marker().addTo(mymap);
-  var marker3 = L.marker().addTo(mymap);
-  var marker4 = L.marker().addTo(mymap);
-  var marker5 = L.marker().addTo(mymap);
-
-  marker1.bindPopup("<b>Walgreens</b><br>I am a popup.");
-  marker2.bindPopup("<b>Southern Arizona Urgent Care</b><br>I am a popup.");
-  marker3.bindPopup("<b>Fastmed Urgent Care</b><br>I am a popup.");
-  marker4.bindPopup("<b>Minuteclinic</b><br>I am a popup.");
-  marker5.bindPopup("<b>CVS</b><br>I am a popup.");
-
-  return mymap;
+  function addPin(mymap, lat, lon, name) {L.marker([lat, lon]).addTo(mymap).bindPopup(name);
   }
 
 
@@ -129,9 +112,8 @@
   <body>
 
     <h2>COVID-19 Testing Locations</h2>
-
-    <div id="sheet"></div>
     <div id="mapid"></div>
+    <div id="sheet"></div>
 
 
     <div id="rss_items"></div>
